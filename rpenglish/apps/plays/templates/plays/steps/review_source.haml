@@ -1,0 +1,11 @@
+- extends 'plays/steps/base.html'
+- load plays_tags
+
+- block instructions
+    %p Прочитайте текст эпизода и прослушайте оригинал.
+- block task
+    %dl.dl-horizontal
+        - for line in bit.lines.all
+            %dt {{ line.character_ru }}
+            %dd {{ line.text_ru }}
+    - source bit

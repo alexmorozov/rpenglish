@@ -1,0 +1,21 @@
+- extends 'base.html'
+- load plays_tags
+
+- block title
+    Roleplay: {{ step.description }}: {{ bit }}
+
+- block content
+    %h1
+        {{ bit }}
+    %h2
+        {{ step.description }}
+    .panel.panel-default
+        .panel-heading
+            Участники
+        %ul.list-group
+            - for student in play.students.all
+                %li.list-group-item
+                    - student_badge student
+    - include step.template_name
+    - if next_url
+        %a.btn.btn-primary.btn-lg{href: '{{ next_url }}'} Продолжить

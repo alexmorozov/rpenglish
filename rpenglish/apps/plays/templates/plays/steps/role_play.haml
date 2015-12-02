@@ -1,0 +1,13 @@
+- extends 'plays/steps/base.html'
+- load plays_tags
+
+- block instructions
+    %ul
+        %li Переводите на английский предложения по ролям.
+
+- block task
+    %dl.dl-horizontal
+        - for line in lines
+            %dt {% student_badge line.student %}
+            %dd{title: '{{ line.text }}'}
+                {{ line.text_ru }}
